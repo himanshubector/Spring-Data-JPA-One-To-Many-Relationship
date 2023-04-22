@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface CourseMaterialRepository extends JpaRepository<CourseMaterial,Long>
 {
 
-
 }

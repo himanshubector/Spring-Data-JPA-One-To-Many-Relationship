@@ -35,7 +35,7 @@ could not initialize proxy [com.hb.spring.data.jpa.tutorial.entity.Course#1] - n
 
 This error is related to the FetchType defined in the entity.
 
-Fix -->
+Fix for this issue -->
 
 With fetch = FetchType.LAZY, use @ToString(exclude = "course") at the entity Class level.
 
