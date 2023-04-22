@@ -1,0 +1,48 @@
+
+Error Details :
+
+org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException:
+object references an unsaved transient instance - save the transient instance before flushing :
+com.hb.spring.data.jpa.tutorial.entity.CourseMaterial.course -> com.hb.spring.data.jpa.tutorial.entity.Course;
+nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException:
+object references an unsaved transient instance - save the transient instance before flushing :
+com.hb.spring.data.jpa.tutorial.entity.CourseMaterial.course -> com.hb.spring.data.jpa.tutorial.entity.Course
+
+
+// Here, we are trying to save the CourseMaterial here without saving the Course
+
+i.e. While saving the CourseMaterial here, we should have the Course already present in the database but it is not present/saved in the db.
+
+For this, we need to save the Course in order to save the CourseMaterial here.
+
+To make this happen, Cascading comes into picture.
+
+
+Cascading means to pass the permissions/properties to your child element from your parent element.
+
+
+Fix for this issue -->>   @OneToOne(cascade = CascadeType.ALL)
+
+
+
+
+
+Error Details :
+
+org.hibernate.LazyInitializationException:
+could not initialize proxy [com.hb.spring.data.jpa.tutorial.entity.Course#1] - no Session
+
+
+This error is related to the FetchType defined in the entity.
+
+Fix -->
+
+With fetch = FetchType.LAZY, use @ToString(exclude = "course") at the entity Class level.
+
+
+
+
+
+
+
+
