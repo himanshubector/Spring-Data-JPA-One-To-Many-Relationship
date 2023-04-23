@@ -21,13 +21,13 @@ class CourseMaterialRepositoryTest
     public void saveCourseMaterial()
     {
         Course course = Course.builder()
-                        .title(".net")
-                        .credit(6)
+                        .title("Aerospace")
+                        .credit(25)
                         .build();
 
 
         CourseMaterial courseMaterial = CourseMaterial.builder()
-                                        .url("www.dailycodebuffer.com")
+                                        .url("www.aerospaceengineering.com")
                                         .course(course)
                                         .build();
 

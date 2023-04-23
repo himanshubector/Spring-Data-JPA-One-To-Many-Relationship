@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//@ToString(exclude = "course")
+@ToString(exclude = "course")
 public class CourseMaterial
 {
 
@@ -29,13 +29,14 @@ public class CourseMaterial
     private String url;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"
     )
     private Course course;
 
+    // 'optional = false' means here that 'course' is a required field and we need to set it to CourseMaterial before saving the CourseMaterial
 
     // With FetchType.LAZY and @ToString(exclude = "course") at the entity Class level,
     // it will fetch the details of the Parent only i.e. CourseMaterial

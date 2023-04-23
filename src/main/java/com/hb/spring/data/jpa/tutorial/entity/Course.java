@@ -16,7 +16,6 @@ import java.util.List;
 @Builder
 public class Course
 {
-
     @Id
     @SequenceGenerator(
             name = "course_sequence",
@@ -37,7 +36,10 @@ public class Course
 
     @OneToOne(mappedBy = "course")
     private CourseMaterial courseMaterial;  // This 'course' here refers to the 'course' attribute in the CourseMaterial entity class
+
                                             // Thus, here we are defining that One to One mapping is already defined by the 'course' attribute in CourseMaterial entity class
+
                                             // Thus, we are defining here One To One Bi-Directional Mapping
+
 
 }

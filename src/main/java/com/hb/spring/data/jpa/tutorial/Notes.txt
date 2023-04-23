@@ -21,7 +21,7 @@ To make this happen, Cascading comes into picture.
 Cascading means to pass the permissions/properties to your child element from your parent element.
 
 
-Fix for this issue -->>   @OneToOne(cascade = CascadeType.ALL)
+Fix for this issue ------>>   @OneToOne(cascade = CascadeType.ALL)
 
 
 
@@ -36,13 +36,25 @@ could not initialize proxy [com.hb.spring.data.jpa.tutorial.entity.Course#1] - n
 
 This error is related to the FetchType defined in the entity.
 
-Fix for this issue -->
+Fix for this issue ------>
 
 With fetch = FetchType.LAZY, use @ToString(exclude = "course") at the entity Class level.
 
 
 
 
+
+Error Details :
+
+org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value :
+com.hb.spring.data.jpa.tutorial.entity.CourseMaterial.course; nested exception is org.hibernate.PropertyValueException:
+not-null property references a null or transient value : com.hb.spring.data.jpa.tutorial.entity.CourseMaterial.course
+
+
+
+Fix for this issue ------>
+
+Because 'course' is a required field now, we can't save the CourseMaterial without adding the Course to it in saveCourseMaterial() method in the CourseMaterialRepositoryTest class.
 
 
 
