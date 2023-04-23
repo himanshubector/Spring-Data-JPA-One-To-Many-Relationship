@@ -27,6 +27,7 @@ Fix for this issue -->>   @OneToOne(cascade = CascadeType.ALL)
 
 
 
+
 Error Details :
 
 org.hibernate.LazyInitializationException:
